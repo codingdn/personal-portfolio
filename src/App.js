@@ -19,6 +19,7 @@ import EmailIcon from "@material-ui/icons/Email";
 /**
  * Eventually, seperate components into different files
  * BEM naming scheme
+ * Dark mode? - After initial version is completed and operational
  */
 
 const useStyles = makeStyles((theme) => ({
@@ -143,13 +144,14 @@ function App() {
             internships, etc. Otherwise, you can ask me questions and simply say
             hi!
           </p>
+
+          {/**https://stackoverflow.com/questions/50350085/how-to-make-a-hyperlink-external-in-react */}
           <ButtonGroup className="app__contactButtons">
             <Button>
               <EmailIcon />
             </Button>
             <Button>
-              <LinkedInIcon />
-            </Button>
+              <LinkedInIcon /></Button>
             <Button>
               <GitHubIcon />
             </Button>
