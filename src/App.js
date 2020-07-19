@@ -4,11 +4,13 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import "./App.css";
 import { Button } from "@material-ui/core";
+
 import {db} from './firebase';
 
 import PortfolioLogo from "./Images/portfolio logo.png";
 
 //use in contact
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -135,6 +137,12 @@ function App() {
           internships, etc. Otherwise, you can ask me questions and simply say
           hi!
         </p>
+        <ButtonGroup>
+          <Button><EmailIcon/></Button>
+          <Button><LinkedInIcon/></Button>
+          <Button><GitHubIcon/></Button>
+          <Button><InstagramIcon/></Button>
+        </ButtonGroup>
       </div>
     </div>
   );
