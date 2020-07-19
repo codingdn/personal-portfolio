@@ -73,7 +73,27 @@ function App() {
       </div>
       {/**------------------------------------------------- */}
       <div className="app__about">
-        <h3>This is where the about page will be</h3>
+        <div className="app__aboutDescription">
+          <article>
+            <h1>
+              <strong>
+                <u>About Me</u>
+              </strong>
+            </h1>
+            <p>
+              Hi, I'm Daneil Nguyen, a current college student who is a tech
+              enthusiast and aspiring full-stack developer.
+            </p>
+            <p>
+              I am based in the DMV and am attending the University of Maryland,
+              College Park as an upcoming freshman this fall. I will be studying
+              Computer Science with a focus on Data Science.
+            </p>
+            <p>
+              
+              </p>
+          </article>
+        </div>
         <div className="app__profilePic">
           {/**LinkedIn Image Here */}
           <img src="https://media-exp1.licdn.com/dms/image/C4D03AQG4_BY5dZqNPA/profile-displayphoto-shrink_200_200/0?e=1600905600&v=beta&t=bgX8cBGiHyp8i1HlbSvAVO6CJxdUr2L7CerM5VXZ83A" />
