@@ -1,40 +1,42 @@
-h1{
-    font-weight: 300;
-    line-height: 1.5;
-    font-size: 2.5rem;
+* {
+  margin: 0;
 }
 
-article{
-    max-width: 700px;
-    margin: 0px auto;
-    padding: 10px;
-    font-family: "Source Sans Pro", sans-serif;
-    color: #36363C;
+h1 {
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 2.5rem;
 }
 
-
-.app__logo{
-    width: 200;
-    height: 100;
-    display: flex;
+article {
+  max-width: 700px;
+  margin: 0px auto;
+  padding: 10px;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #36363c;
 }
 
-.app__header{
-    display: flex;
-    position: sticky;
-
+.app__logo {
+  width: 200;
+  height: 100;
+  display: flex;
 }
 
-.app__aboutDescription{
-    max-width: 500px;
-    padding: 20px;
+.app__header {
+  display: flex;
+  position: sticky;
 }
 
-.app__profilePic{
-    margin-right: 20px;
+.app__aboutDescription {
+  max-width: 500px;
+  padding: 20px;
 }
 
-.app__about{
-    padding: 20px;
-    display: flex;
+.app__profilePic {
+  margin-right: 20px;
+}
+
+.app__about {
+  padding: 20px;
+  display: flex;
 }
