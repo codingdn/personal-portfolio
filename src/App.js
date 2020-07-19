@@ -5,16 +5,16 @@ import Toolbar from "@material-ui/core/Toolbar";
 import "./App.css";
 import { Button } from "@material-ui/core";
 
-import {db} from './firebase';
+import { db } from "./firebase";
 
 import PortfolioLogo from "./Images/portfolio logo.png";
 
 //use in contact
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import EmailIcon from '@material-ui/icons/Email';
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import EmailIcon from "@material-ui/icons/Email";
 
 /**
  * Eventually, seperate components into different files
@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     background: "white",
     color: "rgb(63,81,181)",
   },
+  appBar: {
+    position: "sticky",
+  },
 }));
 
 function App() {
@@ -58,7 +61,7 @@ function App() {
     <div className="App">
       <div className={classes.root}>
         <header className="app__header">
-          <AppBar position="static">
+          <AppBar position="static" className={classes.appBar}>
             <Toolbar>
               <img
                 className="app__logo"
@@ -102,11 +105,13 @@ function App() {
             Hi, I'm Daneil Nguyen, a current college student who is a tech
             enthusiast and aspiring full-stack developer.
           </p>
+          <br />
           <p>
             I am based in the DMV and am attending the University of Maryland,
             College Park as an upcoming freshman this fall. I will be studying
             Computer Science with a focus on Data Science.
           </p>
+          <br />
           <p>
             My overarching goal is to be able to utilize technology to bring
             forth positive change in this world. However, I love programming and
@@ -131,18 +136,28 @@ function App() {
       </div>
       {/**------------------------------------------------- */}
       <div className="contact">
-        <h3>Get In Touch</h3>
-        <p>
-          My inbox is always open for new opportunities for employment,
-          internships, etc. Otherwise, you can ask me questions and simply say
-          hi!
-        </p>
-        <ButtonGroup>
-          <Button><EmailIcon/></Button>
-          <Button><LinkedInIcon/></Button>
-          <Button><GitHubIcon/></Button>
-          <Button><InstagramIcon/></Button>
-        </ButtonGroup>
+        <article>
+          <h1>Get In Touch</h1>
+          <p>
+            My inbox is always open for new opportunities for employment,
+            internships, etc. Otherwise, you can ask me questions and simply say
+            hi!
+          </p>
+          <ButtonGroup className="app__contactButtons">
+            <Button>
+              <EmailIcon />
+            </Button>
+            <Button>
+              <LinkedInIcon />
+            </Button>
+            <Button>
+              <GitHubIcon />
+            </Button>
+            <Button>
+              <InstagramIcon />
+            </Button>
+          </ButtonGroup>
+        </article>
       </div>
     </div>
   );
