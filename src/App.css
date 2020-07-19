@@ -21,7 +21,20 @@ article{
 
 .app__header{
     display: flex;
+    position: sticky;
+
 }
 
-.app__redirects{
+.app__aboutDescription{
+    max-width: 500px;
+    padding: 20px;
+}
+
+.app__profilePic{
+    margin-right: 20px;
+}
+
+.app__about{
+    padding: 20px;
+    display: flex;
 }

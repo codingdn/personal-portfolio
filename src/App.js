@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import "./App.css";
 import { Button } from "@material-ui/core";
+import {db} from './firebase';
+
 import PortfolioLogo from "./Images/portfolio logo.png";
+
+//use in contact
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import EmailIcon from '@material-ui/icons/Email';
 
 /**
  * Eventually, seperate components into different files
@@ -33,7 +41,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+  const [resume, setResume] = useState(false);
   const classes = useStyles();
+
+  {
+    /**handles redirect when resume button is clicked */
+  }
+  const handleResume = (e) => {
+    e.preventDefault();
+    setResume(true);
+  };
 
   return (
     <div className="App">
@@ -74,25 +91,27 @@ function App() {
       {/**------------------------------------------------- */}
       <div className="app__about">
         <div className="app__aboutDescription">
-          <article>
-            <h1>
-              <strong>
-                <u>About Me</u>
-              </strong>
-            </h1>
-            <p>
-              Hi, I'm Daneil Nguyen, a current college student who is a tech
-              enthusiast and aspiring full-stack developer.
-            </p>
-            <p>
-              I am based in the DMV and am attending the University of Maryland,
-              College Park as an upcoming freshman this fall. I will be studying
-              Computer Science with a focus on Data Science.
-            </p>
-            <p>
-              
-              </p>
-          </article>
+          <h1>
+            <strong>
+              <u>About Me</u>
+            </strong>
+          </h1>
+          <p>
+            Hi, I'm Daneil Nguyen, a current college student who is a tech
+            enthusiast and aspiring full-stack developer.
+          </p>
+          <p>
+            I am based in the DMV and am attending the University of Maryland,
+            College Park as an upcoming freshman this fall. I will be studying
+            Computer Science with a focus on Data Science.
+          </p>
+          <p>
+            My overarching goal is to be able to utilize technology to bring
+            forth positive change in this world. However, I love programming and
+            have gained an interest in web development and UI/UX recently. My
+            goal is to learn full-stack development so that I can create and
+            deploy modern web applications.
+          </p>
         </div>
         <div className="app__profilePic">
           {/**LinkedIn Image Here */}
@@ -104,12 +123,18 @@ function App() {
         <h3>This is where my skill sets will be</h3>
       </div>
       {/**------------------------------------------------- */}
+      {/**Possibly use firebase so that new projects can be easily added */}
       <div className="app__projects">
         <h3>This is where my projects will be displayed</h3>
       </div>
       {/**------------------------------------------------- */}
       <div className="contact">
-        <h3>This is where my contact information will be</h3>
+        <h3>Get In Touch</h3>
+        <p>
+          My inbox is always open for new opportunities for employment,
+          internships, etc. Otherwise, you can ask me questions and simply say
+          hi!
+        </p>
       </div>
     </div>
   );
