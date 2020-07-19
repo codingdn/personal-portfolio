@@ -11,3 +11,17 @@ article{
     font-family: "Source Sans Pro", sans-serif;
     color: #36363C;
 }
+
+
+.app__logo{
+    width: 200;
+    height: 100;
+    display: flex;
+}
+
+.app__header{
+    display: flex;
+}
+
+.app__redirects{
+}
