@@ -10,13 +10,13 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import EmailIcon from "@material-ui/icons/Email";
-
-import ResumePDF from './Files/Resume.pdf';
+import ResumePDF from "./Files/Resume.pdf";
 /**
  * Eventually, seperate components into different files
  * BEM naming scheme
  * Dark mode? - After initial version is completed and operational
  * clean up code
+ * https://brittanychiang.com/
  */
 
 const useStyles = makeStyles((theme) => ({
@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
     border: 3,
     borderCcolor: "white",
     background: "white",
-    color: "rgb(63,81,181)"
-  }
+    color: "rgb(63,81,181)",
+  },
 }));
 
 const skillset = [
@@ -56,19 +56,23 @@ function App() {
   return (
     <div className="App">
       <div className="app__header">
-          <img
-            className="app__logo"
-            height="50px"
-            width="150px"
-            src={PortfolioLogo}
-          />
-          <div className="app__headerButtons">
+        <img
+          className="app__logo"
+          height="50px"
+          width="150px"
+          src={PortfolioLogo}
+        />
+        <div className="app__headerButtons">
           <Button className={classes.button}>About</Button>
           <Button className={classes.button}>Projects</Button>
           <Button className={classes.button}>Contact</Button>
-            {/**This button will redirect to pdf of my current resume */}
-            <Button className={classes.resumeButton}><a href={ResumePDF} download className="app__headerButtonsResume">Resume</a></Button>
-          </div>
+          {/**This button will redirect to pdf of my current resume */}
+          <Button className={classes.resumeButton}>
+            <a href={ResumePDF} download className="app__headerButtonsResume">
+              Resume
+            </a>
+          </Button>
+        </div>
       </div>
       {/**------------------------------------------------- */}
       <div className="app__introduction">
@@ -108,9 +112,11 @@ function App() {
             goal is to learn full-stack development so that I can create and
             deploy modern web applications.
           </p>
-          <br/>
+          <br />
 
-          <center><h2>Skill Set/Technologies:</h2></center>
+          <center>
+            <h2>Skill Set/Technologies:</h2>
+          </center>
           <div className="app__skills">
             {skillset.map((skill) => (
               <div className="app__skillsIndividual">
@@ -134,7 +140,23 @@ function App() {
       {/**------------------------------------------------- */}
       {/**Possibly use firebase so that new projects can be easily added. Map */}
       <div className="app__projects">
-        <ProjectCard />
+        <center><h1>My Projects</h1></center>
+        <div className="app__projectList">
+          {/**test projects */}
+        <ProjectCard
+          projectName="Test"
+          image="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F29%2F06%2F52%2F16%2F2574220d-7737-4c39-a562-8e153a5d1497%2Fwebsite-hero3.png?auto=format&ch=Width%2CDPR&fm=png&w=824&h=457"
+          description="This is where the description of the test will be"
+          github="https://github.com/"
+          technologies={['react', 'javascript']}
+        />
+        <ProjectCard
+          projectName="Test"
+          image="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F29%2F06%2F52%2F16%2F2574220d-7737-4c39-a562-8e153a5d1497%2Fwebsite-hero3.png?auto=format&ch=Width%2CDPR&fm=png&w=824&h=457"
+          description="This is where the description of the test will be"
+          github="https://github.com/"
+        />
+        </div>
       </div>
       {/**------------------------------------------------- */}
       <div className="app__contact">
