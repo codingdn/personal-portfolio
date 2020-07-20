@@ -90,11 +90,11 @@ function App() {
       <div className="app__about">
         <div className="app__aboutDescription">
           <center>
-          <h1>
-            {/* <strong> */}
+            <h1>
+              {/* <strong> */}
               <u>About Me</u>
-            {/* </strong> */}
-          </h1>
+              {/* </strong> */}
+            </h1>
           </center>
           <p>
             Hi, I'm Daneil Nguyen, a current college student who is a tech
@@ -142,22 +142,24 @@ function App() {
       {/**------------------------------------------------- */}
       {/**Possibly use firebase so that new projects can be easily added. Map */}
       <div className="app__projects">
-        <center><h1>My Projects</h1></center>
+        <center>
+          <h1>My Projects</h1>
+        </center>
         <div className="app__projectList">
           {/**test projects */}
-        <ProjectCard
-          projectName="Test"
-          image="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F29%2F06%2F52%2F16%2F2574220d-7737-4c39-a562-8e153a5d1497%2Fwebsite-hero3.png?auto=format&ch=Width%2CDPR&fm=png&w=824&h=457"
-          description="This is where the description of the test will be"
-          github="https://github.com/"
-          technologies="React, JavaScript, HTML, CSS"
-        />
-        <ProjectCard
-          projectName="Test"
-          image="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F29%2F06%2F52%2F16%2F2574220d-7737-4c39-a562-8e153a5d1497%2Fwebsite-hero3.png?auto=format&ch=Width%2CDPR&fm=png&w=824&h=457"
-          description="This is where the description of the test will be"
-          github="https://github.com/"
-        />
+          <ProjectCard
+            projectName="Test"
+            image="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F29%2F06%2F52%2F16%2F2574220d-7737-4c39-a562-8e153a5d1497%2Fwebsite-hero3.png?auto=format&ch=Width%2CDPR&fm=png&w=824&h=457"
+            description="This is where the description of the test will be"
+            github="https://github.com/"
+            technologies="React, JavaScript, HTML, CSS"
+          />
+          <ProjectCard
+            projectName="Test"
+            image="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F29%2F06%2F52%2F16%2F2574220d-7737-4c39-a562-8e153a5d1497%2Fwebsite-hero3.png?auto=format&ch=Width%2CDPR&fm=png&w=824&h=457"
+            description="This is where the description of the test will be"
+            github="https://github.com/"
+          />
         </div>
       </div>
       {/**------------------------------------------------- */}
@@ -196,6 +198,12 @@ function App() {
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="app__footer">
+        <footer>
+          <h3>©Daneil Nguyen, 2020</h3>
+        </footer>
       </div>
     </div>
   );
