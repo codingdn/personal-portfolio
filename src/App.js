@@ -1,50 +1,45 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import "./App.css";
 import { Button } from "@material-ui/core";
-
+import PortfolioPic from "./Images/hs pic.jpg";
 import { db } from "./firebase";
-
+import ProjectCard from "./ProjectCard";
 import PortfolioLogo from "./Images/portfolio logo.png";
-
-//use in contact
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import EmailIcon from "@material-ui/icons/Email";
 
+import ResumePDF from './Files/Resume.pdf';
 /**
  * Eventually, seperate components into different files
  * BEM naming scheme
  * Dark mode? - After initial version is completed and operational
+ * clean up code
  */
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  rightToolBar: {
-    marginLeft: "auto",
-    marginRight: -12,
-  },
-  resumeButton: {
+  button: {
     border: 1,
     background: "white",
     color: "rgb(63,81,181)",
   },
-  appBar: {
-    position: "sticky",
-  },
+  resumeButton: {
+    border: 3,
+    borderCcolor: "white",
+    background: "white",
+    color: "rgb(63,81,181)"
+  }
 }));
+
+const skillset = [
+  { skill: "JavaScript" },
+  { skill: "React" },
+  { skill: "HTML" },
+  { skill: "CSS" },
+  { skill: "Git" },
+];
 
 function App() {
   const [resume, setResume] = useState(false);
@@ -60,27 +55,20 @@ function App() {
 
   return (
     <div className="App">
-      <div className={classes.root}>
-        <header className="app__header">
-          <AppBar position="static" className={classes.appBar}>
-            <Toolbar>
-              <img
-                className="app__logo"
-                height="50px"
-                width="150px"
-                src={PortfolioLogo}
-              />
-              <div className={classes.rightToolBar}>
-                <Button color="inherit">About</Button>
-                <Button color="inherit">Skills</Button>
-                <Button color="inherit">Projects</Button>
-                <Button color="inherit">Contact</Button>
-                {/**This button will redirect to pdf of my current resume */}
-                <Button className={classes.resumeButton}>Resume</Button>
-              </div>
-            </Toolbar>
-          </AppBar>
-        </header>
+      <div className="app__header">
+          <img
+            className="app__logo"
+            height="50px"
+            width="150px"
+            src={PortfolioLogo}
+          />
+          <div className="app__headerButtons">
+          <Button className={classes.button}>About</Button>
+          <Button className={classes.button}>Projects</Button>
+          <Button className={classes.button}>Contact</Button>
+            {/**This button will redirect to pdf of my current resume */}
+            <Button className={classes.resumeButton}><a href={ResumePDF} download className="app__headerButtonsResume">Resume</a></Button>
+          </div>
       </div>
       {/**------------------------------------------------- */}
       <div className="app__introduction">
@@ -120,25 +108,40 @@ function App() {
             goal is to learn full-stack development so that I can create and
             deploy modern web applications.
           </p>
+          <br/>
+
+          <center><h2>Skill Set/Technologies:</h2></center>
+          <div className="app__skills">
+            {skillset.map((skill) => (
+              <div className="app__skillsIndividual">
+                <h3>⚪{skill.skill}</h3>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="app__profilePic">
           {/**LinkedIn Image Here */}
-          <img src="https://media-exp1.licdn.com/dms/image/C4D03AQG4_BY5dZqNPA/profile-displayphoto-shrink_200_200/0?e=1600905600&v=beta&t=bgX8cBGiHyp8i1HlbSvAVO6CJxdUr2L7CerM5VXZ83A" />
+          <img
+            src={PortfolioPic}
+            alt="profile pic"
+            height="400px"
+            width="350px"
+          />
         </div>
       </div>
       {/**------------------------------------------------- */}
-      <div className="app__skills">
-        <h3>This is where my skill sets will be</h3>
-      </div>
+
       {/**------------------------------------------------- */}
-      {/**Possibly use firebase so that new projects can be easily added */}
+      {/**Possibly use firebase so that new projects can be easily added. Map */}
       <div className="app__projects">
-        <h3>This is where my projects will be displayed</h3>
+        <ProjectCard />
       </div>
       {/**------------------------------------------------- */}
-      <div className="contact">
-        <article>
-          <h1>Get In Touch</h1>
+      <div className="app__contact">
+        <div className="app__contactText">
+          <center>
+            <h1>Get In Touch</h1>
+          </center>
           <p>
             My inbox is always open for new opportunities for employment,
             internships, etc. Otherwise, you can ask me questions and simply say
@@ -146,20 +149,29 @@ function App() {
           </p>
 
           {/**https://stackoverflow.com/questions/50350085/how-to-make-a-hyperlink-external-in-react */}
-          <ButtonGroup className="app__contactButtons">
-            <Button>
-              <EmailIcon />
-            </Button>
-            <Button>
-              <LinkedInIcon /></Button>
-            <Button>
-              <GitHubIcon />
-            </Button>
-            <Button>
-              <InstagramIcon />
-            </Button>
-          </ButtonGroup>
-        </article>
+          <div className="app__contactButtons">
+            <button>
+              <a href="mailto: danthedevnguyen@gmail.com">
+                <EmailIcon className="app__contactIcons" />
+              </a>
+            </button>
+            <button>
+              <a href="www.linkedin.com/in/daneil-nguyen">
+                <LinkedInIcon className="app__contactIcons" />
+              </a>
+            </button>
+            <button>
+              <a href="https://github.com/codingdn">
+                <GitHubIcon className="app__contactIcons" />
+              </a>
+            </button>
+            <button>
+              <a href="https://www.instagram.com/coding.dan/">
+                <InstagramIcon className="app__contactIcons" />
+              </a>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
