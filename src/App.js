@@ -11,6 +11,8 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import EmailIcon from "@material-ui/icons/Email";
 import ResumePDF from "./Files/Resume.pdf";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+
 /**
  * Eventually, seperate components into different files
  * BEM naming scheme
@@ -23,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     border: 1,
     background: "white",
+    backgroundColor: 'black',
     color: "rgb(63,81,181)",
   },
   resumeButton: {
@@ -42,16 +45,12 @@ const skillset = [
 ];
 
 function App() {
-  const [resume, setResume] = useState(false);
   const classes = useStyles();
 
   {
     /**handles redirect when resume button is clicked */
   }
-  const handleResume = (e) => {
-    e.preventDefault();
-    setResume(true);
-  };
+
 
   return (
     <div className="App">
@@ -63,11 +62,12 @@ function App() {
           src={PortfolioLogo}
         />
         <div className="app__headerButtons">
-          <Button className={classes.button}>About</Button>
-          <Button className={classes.button}>Projects</Button>
-          <Button className={classes.button}>Contact</Button>
+        <AnchorLink offset='100' href="#About" className="app__anchor"><Button className={classes.button}>About</Button></AnchorLink>
+        <AnchorLink offset='100' href="#Projects" className="app__anchor"><Button className={classes.button}>Projects</Button></AnchorLink>
+        <AnchorLink offset='100' href="#Contact" className="app__anchor"><Button className={classes.button}>Contact</Button></AnchorLink>
+          
           {/**This button will redirect to pdf of my current resume */}
-          <Button className={classes.resumeButton}>
+          <Button className={classes.resumeButton}> 
             <a href={ResumePDF} download className="app__headerButtonsResume">
               Resume
             </a>
@@ -87,6 +87,7 @@ function App() {
         </article>
       </div>
       {/**------------------------------------------------- */}
+      <section id='About'>
       <div className="app__about">
         <div className="app__aboutDescription">
           <center>
@@ -117,12 +118,12 @@ function App() {
           <br />
 
           <center>
-            <h2>Skill Set/Technologies:</h2>
+            <h3>Skill Set/Technologies:</h3>
           </center>
           <div className="app__skills">
             {skillset.map((skill) => (
               <div className="app__skillsIndividual">
-                <h3>⚪{skill.skill}</h3>
+                <h4>⚪{skill.skill}</h4>
               </div>
             ))}
           </div>
@@ -137,10 +138,12 @@ function App() {
           />
         </div>
       </div>
+      </section>
       {/**------------------------------------------------- */}
 
       {/**------------------------------------------------- */}
       {/**Possibly use firebase so that new projects can be easily added. Map */}
+      <section id="Projects">
       <div className="app__projects">
         <center>
           <h1>My Projects</h1>
@@ -162,7 +165,9 @@ function App() {
           />
         </div>
       </div>
+      </section>
       {/**------------------------------------------------- */}
+      <section id="Contact">
       <div className="app__contact">
         <div className="app__contactText">
           <center>
@@ -199,6 +204,7 @@ function App() {
           </div>
         </div>
       </div>
+      </section>
 
       <div className="app__footer">
         <footer>
