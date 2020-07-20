@@ -23,14 +23,12 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    border: 1,
+  
     background: "white",
     backgroundColor: 'black',
     color: "rgb(63,81,181)",
   },
   resumeButton: {
-    border: 3,
-    borderCcolor: "white",
     background: "white",
     color: "rgb(63,81,181)",
   },
