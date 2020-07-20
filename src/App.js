@@ -89,11 +89,13 @@ function App() {
       {/**------------------------------------------------- */}
       <div className="app__about">
         <div className="app__aboutDescription">
+          <center>
           <h1>
-            <strong>
+            {/* <strong> */}
               <u>About Me</u>
-            </strong>
+            {/* </strong> */}
           </h1>
+          </center>
           <p>
             Hi, I'm Daneil Nguyen, a current college student who is a tech
             enthusiast and aspiring full-stack developer.
@@ -148,7 +150,7 @@ function App() {
           image="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F29%2F06%2F52%2F16%2F2574220d-7737-4c39-a562-8e153a5d1497%2Fwebsite-hero3.png?auto=format&ch=Width%2CDPR&fm=png&w=824&h=457"
           description="This is where the description of the test will be"
           github="https://github.com/"
-          technologies={['react', 'javascript']}
+          technologies="React, JavaScript, HTML, CSS"
         />
         <ProjectCard
           projectName="Test"
