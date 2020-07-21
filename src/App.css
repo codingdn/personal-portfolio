@@ -62,7 +62,10 @@ article {
 
 .app__profilePic {
   padding-left: 50px;
-  
+}
+
+.app__profilePic > img {
+  box-shadow: 15px 15px grey;
 }
 
 .app__about {
