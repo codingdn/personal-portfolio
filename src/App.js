@@ -12,25 +12,25 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import EmailIcon from "@material-ui/icons/Email";
 import ResumePDF from "./Files/Resume.pdf";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {Switch, FormControlLabel} from '@material-ui/core';
 /**
- * Eventually, seperate components into different files
- * BEM naming scheme
- * Dark mode? - After initial version is completed and operational
- * clean up code
- * https://brittanychiang.com/
+ *Working on dark mode right now
  */
+
+// const themeObject = {
+//   pallete: {
+//     primary: {main: '#053f5c'},
+//     secondary: {main: '#5e3c6f'},
+//     type: 'dark'
+//   }
+// }
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    background: "white",
     backgroundColor: "black",
-    color: "rgb(63,81,181)",
+    color: "white",
     textDecoration: "none",
-  },
-  resumeButton: {
-    background: "white",
-    color: "rgb(63,81,181)",
   },
 }));
 
@@ -42,9 +42,29 @@ const skillset = [
   { skill: "Git" },
 ];
 
+// const useDarkMode = () => {
+//   const [theme, setTheme] = useState(themeObject);
+//   const {palette: type} = theme;
+//   const toggleDarkMode = () => {
+//     const updatedTheme = {
+//       ...theme,
+//       pallete: {
+//         ...theme.pallete,
+//         type: type ==='light' ? 'dark': 'light'
+//       }
+//     }
+//     setTheme(updatedTheme);
+//   }
+//   return(theme);
+// }
+
 function App() {
   const classes = useStyles();
   const [projects, setProjects] = useState([]);
+  //const [theme, toggleDarkMode] = useDarkMode();
+
+  //const themeConfig = createMuiTheme(theme);
+  //console.log(themeConfig)
 
   useEffect(() => {
     db.collection("Projects").onSnapshot((snapshot) => {
@@ -60,14 +80,15 @@ function App() {
     <div className="App">
       <div className="app__header">
         <AnchorLink offset="100" href="#Intro">
-        <img
-          className="app__logo"
-          height="50px"
-          width="150px"
-          src={PortfolioLogo}
-        />
+          <img
+            className="app__logo"
+            height="50px"
+            width="150px"
+            src={PortfolioLogo}
+          />
         </AnchorLink>
         <div className="app__headerButtons">
+          <FormControlLabel control={<Switch onClick={()=> console.log('Dark mode toggled')}/>}/>
           <AnchorLink offset="300" href="#About" className="app__anchor">
             <Button className={classes.button}>About</Button>
           </AnchorLink>
@@ -79,7 +100,7 @@ function App() {
           </AnchorLink>
 
           {/**This button will redirect to pdf of my current resume */}
-          <Button className={classes.resumeButton}>
+          <Button className={classes.button}>
             <a href={ResumePDF} download className="app__headerButtonsResume">
               Resume
             </a>
@@ -88,17 +109,17 @@ function App() {
       </div>
       {/**------------------------------------------------- */}
       <section id="Intro">
-      <div className="app__introduction">
-        <article>
-          <h1>
-            <strong>Hi there!</strong> 👋
-          </h1>
-          <h1>
-            I'm <strong>Daneil Nguyen</strong>, a current college student who is
-            a tech enthusiast and aspiring full-stack developer 💻
-          </h1>
-        </article>
-      </div>
+        <div className="app__introduction">
+          <article>
+            <h1>
+              <strong>Hi there!</strong> 👋
+            </h1>
+            <h1>
+              I'm <strong>Daneil Nguyen</strong>, a current college student who
+              is a tech enthusiast and aspiring full-stack developer 💻
+            </h1>
+          </article>
+        </div>
       </section>
       {/**------------------------------------------------- */}
       <section id="About">
@@ -143,7 +164,6 @@ function App() {
             </div>
           </div>
           <div className="app__profilePic">
-            {/**LinkedIn Image Here */}
             <img
               src={PortfolioPic}
               alt="profile pic"
@@ -191,23 +211,35 @@ function App() {
             {/**https://stackoverflow.com/questions/50350085/how-to-make-a-hyperlink-external-in-react */}
             <div className="app__contactButtons">
               <button>
-                <a href="mailto: danthedevnguyen@gmail.com" className="app__contactIcons"  >
+                <a
+                  href="mailto: danthedevnguyen@gmail.com"
+                  className="app__contactIcons"
+                >
                   <EmailIcon />
                 </a>
               </button>
               <button>
-                <a href="https://www.linkedin.com/in/daneil-nguyen" className="app__contactIcons" >
-                  <LinkedInIcon/>
+                <a
+                  href="https://www.linkedin.com/in/daneil-nguyen"
+                  className="app__contactIcons"
+                >
+                  <LinkedInIcon />
                 </a>
               </button>
               <button>
-                <a href="https://github.com/codingdn" className="app__contactIcons" >
-                  <GitHubIcon/>
+                <a
+                  href="https://github.com/codingdn"
+                  className="app__contactIcons"
+                >
+                  <GitHubIcon />
                 </a>
               </button>
               <button>
-                <a href="https://www.instagram.com/coding.dan/" className="app__contactIcons" >
-                  <InstagramIcon/>
+                <a
+                  href="https://www.instagram.com/coding.dan/"
+                  className="app__contactIcons"
+                >
+                  <InstagramIcon />
                 </a>
               </button>
             </div>

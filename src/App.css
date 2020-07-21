@@ -103,11 +103,11 @@ article {
 
 .app__contactButtons{
   margin: 0px auto;
-
+  padding-top: 10px;
 }
 
 .app__contactText{
-  max-width: 650px;
+  max-width: 500px;
   margin: 0px auto;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -128,4 +128,9 @@ article {
 .app__contactIcons{
   text-decoration: none;
   color: black
+}
+
+.app__anchor{
+  text-decoration: none;
+  color: white;
 }
