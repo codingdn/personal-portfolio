@@ -191,23 +191,23 @@ function App() {
             {/**https://stackoverflow.com/questions/50350085/how-to-make-a-hyperlink-external-in-react */}
             <div className="app__contactButtons">
               <button>
-                <a href="mailto: danthedevnguyen@gmail.com">
-                  <EmailIcon className="app__contactIcons" />
+                <a href="mailto: danthedevnguyen@gmail.com" className="app__contactIcons"  >
+                  <EmailIcon />
                 </a>
               </button>
               <button>
-                <a href="https://www.linkedin.com/in/daneil-nguyen">
-                  <LinkedInIcon className="app__contactIcons" />
+                <a href="https://www.linkedin.com/in/daneil-nguyen" className="app__contactIcons" >
+                  <LinkedInIcon/>
                 </a>
               </button>
               <button>
-                <a href="https://github.com/codingdn">
-                  <GitHubIcon className="app__contactIcons" />
+                <a href="https://github.com/codingdn" className="app__contactIcons" >
+                  <GitHubIcon/>
                 </a>
               </button>
               <button>
-                <a href="https://www.instagram.com/coding.dan/">
-                  <InstagramIcon className="app__contactIcons" />
+                <a href="https://www.instagram.com/coding.dan/" className="app__contactIcons" >
+                  <InstagramIcon/>
                 </a>
               </button>
             </div>

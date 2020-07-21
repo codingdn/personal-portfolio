@@ -9,18 +9,22 @@
     padding: 15px
 }
 
-.projectCard__image > img{
-    object-fit: contain;
-    max-width: 350px;
-    max-height: 300px;
-}
 
 .projectCard__link{
     display: flex;
     padding: 10px;
 }
 
-.app__anchor{
-    text-decoration: none;
-    color: white;
+.projectCard__info{
+    margin-left: 20px;
 }
+
+.projectCard__github{
+    text-decoration: none;
+    color: black
+}
+
+
+
+
+

@@ -124,3 +124,8 @@ article {
   margin-bottom: 20px;
   text-align: center;
 }
+
+.app__contactIcons{
+  text-decoration: none;
+  color: black
+}

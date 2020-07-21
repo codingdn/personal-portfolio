@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import ModalImage from "react-modal-image";
 import "./ProjectCards.css";
 
 //template for displaying projects
@@ -26,7 +27,7 @@ function ProjectCard({
   return (
     <div className="projectCard">
       <div className="projectCard__image">
-        <img src={image} />
+        <ModalImage hideDownload = {true} small={image} medium={image} className="projectCard__modal"/>
       </div>
       <div className="projectCard__info">
         <div className="projectCard__header">
@@ -42,7 +43,7 @@ function ProjectCard({
         <div className="projectCard__link">
           <GitHubIcon />
           <h3>
-            <a href={github}>Source</a>
+            <a href={github} className="projectCard__github">Source</a>
           </h3>
         </div>
       </div>
