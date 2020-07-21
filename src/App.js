@@ -14,6 +14,8 @@ import ResumePDF from "./Files/Resume.pdf";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {Switch, FormControlLabel} from '@material-ui/core';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
 /**
  *Working on dark mode right now
  */
