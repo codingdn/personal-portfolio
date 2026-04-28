@@ -1,43 +1,46 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@custom-variant dark (&:is(.dark, .dark *));
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  background-color: #fafafa;
+  color: #111111;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   min-width: 320px;
-  min-height: 100vh;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.info-card p {
-  font-size: 1.75rem;
+.dark body {
+  background-color: #111111;
+  color: #f5f5f5;
 }
 
-h1 {
-  font-size: 5rem;
-  line-height: 1.1;
+@keyframes palette-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
 }
 
-img {
-  width: 3rem;
-  height: 3rem;
+@keyframes palette-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.links {
-  margin-top: 2.5rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
+.palette-panel    { animation: palette-in   0.14s ease-out; }
+.palette-backdrop { animation: palette-fade 0.14s ease-out; }
