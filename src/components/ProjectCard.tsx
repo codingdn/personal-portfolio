@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import type { Project } from '@/types'
-import githubSvg from '@/assets/github.svg?url'
 
 interface ProjectCardProps {
   project: Project
@@ -40,7 +40,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               className="flex items-center gap-1.5 text-xs text-[#737373] dark:text-[#a3a3a3] hover:text-[#111111] dark:hover:text-[#f5f5f5] transition-colors duration-150"
               aria-label={`${project.title} source code`}
             >
-              <img src={githubSvg} alt="" className="w-3.5 h-3.5 opacity-50 dark:invert" />
+              <Image src="/assets/github.svg" alt="" width={14} height={14} className="opacity-50 dark:invert" />
               Code
             </a>
           )}

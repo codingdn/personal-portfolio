@@ -1,10 +1,10 @@
+'use client'
+
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useCommandPalette } from '@/components/CommandPalette'
-import githubSvg from '@/assets/github.svg?url'
-import linkedinSvg from '@/assets/linkedin.svg?url'
-import instagramSvg from '@/assets/instagram.svg?url'
-import mailSvg from '@/assets/mail.svg?url'
+import Image from 'next/image'
 
 const navLinks = [
   { label: 'About', to: '/' },
@@ -13,19 +13,23 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { href: 'https://www.linkedin.com/in/daneil-nguyen/', src: linkedinSvg, alt: 'LinkedIn' },
-  { href: 'https://github.com/codingdn', src: githubSvg, alt: 'GitHub' },
-  { href: 'https://www.instagram.com/badpicsinc/', src: instagramSvg, alt: 'Instagram' },
-  { href: 'mailto:danthedevnguyen@gmail.com', src: mailSvg, alt: 'Email' },
+  { href: 'https://www.linkedin.com/in/daneil-nguyen/', src: '/assets/linkedin.svg', alt: 'LinkedIn' },
+  { href: 'https://github.com/codingdn', src: '/assets/github.svg', alt: 'GitHub' },
+  { href: 'https://www.instagram.com/badpicsinc/', src: '/assets/instagram.svg', alt: 'Instagram' },
+  { href: 'mailto:danthedevnguyen@gmail.com', src: '/assets/mail.svg', alt: 'Email' },
 ]
 
-function navClass({ isActive }: { isActive: boolean }) {
+function isLinkActive(to: string, pathname: string) {
+  return to === '/' ? pathname === '/' : pathname.startsWith(to)
+}
+
+function navClass(isActive: boolean) {
   return `text-sm transition-colors duration-150 ${
     isActive ? 'text-[#C2410C]' : 'text-[#737373] dark:text-[#a3a3a3] hover:text-[#111111] dark:hover:text-[#f5f5f5]'
   }`
 }
 
-function mobileNavClass({ isActive }: { isActive: boolean }) {
+function mobileNavClass(isActive: boolean) {
   return `text-left py-3 text-sm border-b border-[#F5F5F5] dark:border-[#222] last:border-b-0 ${
     isActive ? 'text-[#C2410C]' : 'text-[#737373] dark:text-[#a3a3a3]'
   }`
@@ -34,12 +38,13 @@ function mobileNavClass({ isActive }: { isActive: boolean }) {
 export default function Nav() {
   const [open, setOpen] = useState(false)
   const { open: openPalette } = useCommandPalette()
+  const pathname = usePathname()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#111111] border-b border-[#E5E5E5] dark:border-[#222]">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link
-          to="/"
+          href="/"
           className="font-medium text-[#111111] dark:text-[#f5f5f5] text-sm tracking-tight"
         >
           Daneil Nguyen
@@ -48,9 +53,13 @@ export default function Nav() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(({ label, to }) => (
-            <NavLink key={to} to={to} end={to === '/'} className={navClass}>
+            <Link
+              key={to}
+              href={to}
+              className={navClass(isLinkActive(to, pathname))}
+            >
               {label}
-            </NavLink>
+            </Link>
           ))}
 
           {/* ⌘K hint */}
@@ -72,7 +81,7 @@ export default function Nav() {
                 className="opacity-40 hover:opacity-100 transition-opacity duration-150"
                 aria-label={alt}
               >
-                <img src={src} alt={alt} className="w-4 h-4 dark:invert" />
+                <Image src={src} alt={alt} width={16} height={16} className="dark:invert" />
               </a>
             ))}
           </div>
@@ -96,15 +105,14 @@ export default function Nav() {
         <div className="md:hidden bg-white dark:bg-[#111111] border-t border-[#E5E5E5] dark:border-[#222]">
           <nav className="px-4 py-3 flex flex-col">
             {navLinks.map(({ label, to }) => (
-              <NavLink
+              <Link
                 key={to}
-                to={to}
-                end={to === '/'}
+                href={to}
                 onClick={() => setOpen(false)}
-                className={mobileNavClass}
+                className={mobileNavClass(isLinkActive(to, pathname))}
               >
                 {label}
-              </NavLink>
+              </Link>
             ))}
           </nav>
           <div className="px-4 pb-4 pt-2 flex gap-5 border-t border-[#F5F5F5] dark:border-[#222]">
@@ -117,7 +125,7 @@ export default function Nav() {
                 className="opacity-50 hover:opacity-100 transition-opacity"
                 aria-label={alt}
               >
-                <img src={src} alt={alt} className="w-5 h-5 dark:invert" />
+                <Image src={src} alt={alt} width={20} height={20} className="dark:invert" />
               </a>
             ))}
           </div>

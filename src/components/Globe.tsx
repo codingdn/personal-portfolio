@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+'use client'
+
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import Globe from 'react-globe.gl'
 import { MeshPhongMaterial } from 'three'
 import { feature } from 'topojson-client'
@@ -26,6 +28,7 @@ export default function GlobeComponent({
 }: GlobeComponentProps) {
   const [countries, setCountries] = useState<CountryFeature[]>([])
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const [loadError, setLoadError] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const globeRef = useRef<any>(null)
@@ -40,7 +43,7 @@ export default function GlobeComponent({
         ) as FeatureCollection<MultiPolygon, { name: string }>
         setCountries(fc.features)
       })
-      .catch(() => {})
+      .catch(() => setLoadError(true))
   }, [])
 
   useEffect(() => {
@@ -99,11 +102,19 @@ export default function GlobeComponent({
     [visitedNames]
   )
 
-  function handlePolygonClick(polygon: object) {
+  const handlePolygonClick = useCallback((polygon: object) => {
     const name = (polygon as CountryFeature).properties?.name ?? ''
     if (!visitedNames.has(name)) return
     const found = countryPhotos.find(c => c.countryName === name) ?? null
     onCountrySelect(selectedCountry?.countryName === name ? null : found)
+  }, [visitedNames, countryPhotos, onCountrySelect, selectedCountry])
+
+  if (loadError) {
+    return (
+      <div className="w-full h-72 sm:h-80 md:h-96 lg:h-[500px] flex items-center justify-center border border-dashed border-[#E5E5E5] dark:border-[#2a2a2a] rounded-xl">
+        <p className="text-sm text-[#737373] dark:text-[#a3a3a3]">Globe failed to load.</p>
+      </div>
+    )
   }
 
   return (

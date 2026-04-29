@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 
 type Theme = 'light' | 'dark'
@@ -10,10 +12,10 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue>({ theme: 'light', toggleTheme: () => {} })
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  // Read initial state from the class set by the inline script in layout.tsx
   const [theme, setTheme] = useState<Theme>(() => {
-    const stored = localStorage.getItem('theme')
-    if (stored === 'light' || stored === 'dark') return stored
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    if (typeof window === 'undefined') return 'light'
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
   })
 
   useEffect(() => {

@@ -1,13 +1,10 @@
-import githubSvg from '@/assets/github.svg?url'
-import linkedinSvg from '@/assets/linkedin.svg?url'
-import instagramSvg from '@/assets/instagram.svg?url'
-import mailSvg from '@/assets/mail.svg?url'
+import Image from 'next/image'
 
 const socialLinks = [
-  { href: 'https://www.linkedin.com/in/daneil-nguyen/', src: linkedinSvg, alt: 'LinkedIn' },
-  { href: 'https://github.com/codingdn', src: githubSvg, alt: 'GitHub' },
-  { href: 'https://www.instagram.com/badpicsinc/', src: instagramSvg, alt: 'Instagram' },
-  { href: 'mailto:danthedevnguyen@gmail.com', src: mailSvg, alt: 'Email' },
+  { href: 'https://www.linkedin.com/in/daneil-nguyen/', src: '/assets/linkedin.svg', alt: 'LinkedIn' },
+  { href: 'https://github.com/codingdn', src: '/assets/github.svg', alt: 'GitHub' },
+  { href: 'https://www.instagram.com/badpicsinc/', src: '/assets/instagram.svg', alt: 'Instagram' },
+  { href: 'mailto:danthedevnguyen@gmail.com', src: '/assets/mail.svg', alt: 'Email' },
 ]
 
 export default function Footer() {
@@ -25,7 +22,7 @@ export default function Footer() {
               className="opacity-40 hover:opacity-100 transition-opacity duration-150"
               aria-label={alt}
             >
-              <img src={src} alt={alt} className="w-4 h-4 dark:invert" />
+              <Image src={src} alt={alt} width={16} height={16} className="dark:invert" />
             </a>
           ))}
         </div>

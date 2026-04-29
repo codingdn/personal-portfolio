@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components/Photography.tsx -> @/components/Globe\":{\"id\":\"components/Photography.tsx -> @/components/Globe\",\"files\":[\"static/chunks/_app-pages-browser_src_components_Globe_tsx.js\"]}}"
