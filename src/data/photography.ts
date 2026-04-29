@@ -10,6 +10,7 @@ export const countryPhotos: CountryPhotos[] = [
     lat: 38,
     lng: -97,
     photos: [],
+    visitNote: 'An incredibly diverse country — ski in the morning and surf in the afternoon. Every region feels like a different world.',
   },
   {
     countryCode: 'JP',
@@ -17,6 +18,7 @@ export const countryPhotos: CountryPhotos[] = [
     lat: 36,
     lng: 138,
     photos: [],
+    visitNote: 'Japan blends ancient tradition with cutting-edge modernity unlike anywhere else. The food, the culture, the precision — truly unforgettable.',
   },
   {
     countryCode: 'VN',
@@ -24,6 +26,7 @@ export const countryPhotos: CountryPhotos[] = [
     lat: 14,
     lng: 108,
     photos: [],
+    visitNote: "Vietnam's street food scene alone is worth the trip. Add in Ha Long Bay and the lantern-lit streets of Hội An and you have one of Asia's best destinations.",
   },
   {
     countryCode: 'TH',
@@ -31,5 +34,6 @@ export const countryPhotos: CountryPhotos[] = [
     lat: 15,
     lng: 101,
     photos: [],
+    visitNote: 'World-class temples, turquoise beaches, and some of the friendliest people you will ever meet — all at a price that will not break the bank.',
   },
 ]

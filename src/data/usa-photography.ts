@@ -14,15 +14,18 @@ export const statePhotos: StatePhotos[] = [
     stateName: 'California',
     stateCode: 'CA',
     photos: [],
+    visitNote: 'Ski in the morning, surf in the afternoon. The scale and diversity of California — from Big Sur to Joshua Tree — is unlike any other state.',
   },
   {
     stateName: 'New York',
     stateCode: 'NY',
     photos: [],
+    visitNote: 'New York City is one of the most electric places on earth. The energy, the food, the culture — even repeat visitors always find something new.',
   },
   {
     stateName: 'Texas',
     stateCode: 'TX',
     photos: [],
+    visitNote: 'Texas has an identity entirely its own — big skies, legendary BBQ, and a mix of sprawling cities and wide-open landscapes that surprises most first-time visitors.',
   },
 ]
